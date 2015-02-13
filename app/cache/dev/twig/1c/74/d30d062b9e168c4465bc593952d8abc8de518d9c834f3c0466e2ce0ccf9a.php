@@ -45,79 +45,103 @@ class __TwigTemplate_1c74d30d062b9e168c4465bc593952d8abc8de518d9c834f3c0466e2ce0
     {
         // line 7
         echo "    <div class=\"col-sm-9 col-sm-offset-3 col-md-6 col-md-offset-2 main\">
-      <h2>Splash Request Form</h2>
-<form  method=\"post\" id='splash'>
+        <legend><h3>Splash Request Form</h3></legend>
+      ";
+        // line 9
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session", array()), "flashbag", array()), "get", array(0 => "notice"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 10
+            echo " 
+          <div class=\"alert alert-success\"> <h4>";
+            // line 11
+            echo twig_escape_filter($this->env, $context["flashMessage"], "html", null, true);
+            echo "</h4></div>
+ 
+";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 14
+        echo "<form  method=\"post\" id='splash'>
 
  
              ";
-        // line 12
+        // line 17
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "Brand", array()), 'row');
         echo "
               ";
-        // line 13
+        // line 18
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "country", array()), 'row');
         echo "
              ";
-        // line 14
+        // line 19
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "vendor", array()), 'row');
         echo "
              ";
-        // line 15
+        // line 20
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "logoUrl", array()), 'row');
         echo "
              ";
-        // line 16
+        // line 21
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "vendorDomain", array()), 'row');
         echo "
              ";
-        // line 17
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "headline", array()), 'row');
         echo "
              ";
-        // line 18
+        // line 23
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "subline", array()), 'row');
         echo "
              ";
-        // line 19
+        // line 24
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "customizedBackground", array()), 'row');
         echo "
              <div id='customizedfield'>
              ";
-        // line 21
+        // line 26
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "isoPortrait", array()), 'row');
         echo "
              ";
-        // line 22
+        // line 27
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "isoLandscape", array()), 'row');
         echo "
              ";
-        // line 23
+        // line 28
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "androidPortrait", array()), 'row');
         echo "
              ";
-        // line 24
+        // line 29
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "androidLandscape", array()), 'row');
         echo "
              ";
-        // line 25
+        // line 30
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "wp8Portrait", array()), 'row');
         echo "
              ";
-        // line 26
+        // line 31
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "wp8Landscape", array()), 'row');
         echo "
+
              </div>  
+             ";
+        // line 34
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "save", array()), 'row');
+        echo "
+
         ";
-        // line 28
+        // line 36
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "_token", array()), 'row');
         echo "
         ";
-        // line 29
+        // line 37
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "_token", array()), 'widget');
         echo "
 
         ";
-        // line 31
+        // line 39
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), 'form_end');
         echo "
 
@@ -126,13 +150,13 @@ class __TwigTemplate_1c74d30d062b9e168c4465bc593952d8abc8de518d9c834f3c0466e2ce0
     ";
     }
 
-    // line 37
+    // line 45
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 38
+        // line 46
         echo "
             <script src=\"";
-        // line 39
+        // line 47
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/splashdetails.js"), "html", null, true);
         echo "\"></script>
        <script type='text/javascript'>
@@ -162,6 +186,6 @@ class __TwigTemplate_1c74d30d062b9e168c4465bc593952d8abc8de518d9c834f3c0466e2ce0
 
     public function getDebugInfo()
     {
-        return array (  136 => 39,  133 => 38,  130 => 37,  121 => 31,  116 => 29,  112 => 28,  107 => 26,  103 => 25,  99 => 24,  95 => 23,  91 => 22,  87 => 21,  82 => 19,  78 => 18,  74 => 17,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  54 => 12,  47 => 7,  44 => 6,  38 => 3,  11 => 1,);
+        return array (  160 => 47,  157 => 46,  154 => 45,  145 => 39,  140 => 37,  136 => 36,  131 => 34,  125 => 31,  121 => 30,  117 => 29,  113 => 28,  109 => 27,  105 => 26,  100 => 24,  96 => 23,  92 => 22,  88 => 21,  84 => 20,  80 => 19,  76 => 18,  72 => 17,  67 => 14,  58 => 11,  55 => 10,  51 => 9,  47 => 7,  44 => 6,  38 => 3,  11 => 1,);
     }
 }

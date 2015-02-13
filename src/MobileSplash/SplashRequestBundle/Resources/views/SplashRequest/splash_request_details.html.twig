@@ -1,84 +1,84 @@
 {% extends '::base.html.twig' %}
 
-{% block title %}Splash Configration{% endblock %}
+{% block title %}Splash Request Details{% endblock %}
 
 
 {% block body %}
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-  <h2>Splash Request Form</h2>
-  <form role="form" id="splash_form" method="post" action="{{ path('splash_add') }}">
+    <legend><h2>Splash Request Details</h2></legend>
+  <form role="form" id="splash_form" method="post" action="">
     <div class="form-group">
       <label for="brand">Brand:</label>
-      <input type='text' disabled class="form-control"  name="brand_name" value='{{splashdetails.brand.name}}' />
+      <input type='text' disabled class="form-control"  name="brand_name" value='{{requestdetails.brand.name}}' />
       
     </div>
     <div class="form-group">
       <label for="country">Country:</label>
-          <input type='text'disabled class="form-control" name="country_name" value='{{splashdetails.country.name}}' />
+          <input type='text'disabled class="form-control" name="country_name" value='{{requestdetails.country.name}}' />
      </div>
       
     <div class="form-group">
       <label for="vendor_code">Vendor code:</label>
-               <input type='text' disabled class="form-control" name="vendor_name" value='{{splashdetails.vendor.name}}' />
+               <input type='text' disabled class="form-control" name="vendor_name" value='{{requestdetails.vendor.name}}' />
 
                  </select>  
     </div>  
  
     <div class="form-group">
       <label for="logo_url">Logo URL:</label>
-        <input type="text" disabled class="form-control" id="vendor_logo" name="vendor_logo" value='{{splashdetails.logoUrl}}'/>
+        <input type="text" disabled class="form-control" id="vendor_logo" name="vendor_logo" value='{{requestdetails.logoUrl}}'/>
     </div>
     
     <div class="form-group">
       <label for="vendor_domain">Vendor domain:</label>
-        <input type="text" disabled class="form-control" id="vendor_domain" name="vendor_domain"value='{{splashdetails.vendorDomain}}'/>
+        <input type="text" disabled class="form-control" id="vendor_domain" name="vendor_domain"value='{{requestdetails.vendorDomain}}'/>
     </div>  
       
     <div class="form-group">
       <label for="headline">Headline:</label>
-        <input type="text" disabled class="form-control" id="headline" name="headline" value='{{splashdetails.headline}}'/>
+        <input type="text" disabled class="form-control" id="headline" name="headline" value='{{requestdetails.headline}}'/>
     </div>  
       
     <div class="form-group">
       <label for="subline">Subline:</label>
-        <input type="text" disabled class="form-control" id="subline" name="subline" value='{{splashdetails.subline}}'/>
+        <input type="text" disabled class="form-control" id="subline" name="subline" value='{{requestdetails.subline}}'/>
     </div>  
       
    
       <div id="customized">
     <div class='col-sm-6'>
       <label for="ios_portrait">IOS Portrait:</label>
-        <input type="text" disabled class="form-control" id="ios_portrait" name="ios_portrait" value='{{splashdetails.isoPortrait}}'>
+        <input type="text" disabled class="form-control" id="ios_portrait" name="ios_portrait" value='{{requestdetails.isoPortrait}}'>
     </div>  
       
       
           <div class='col-sm-6'>
       <label for="ios_landscape">IOS Landscape:</label>
-        <input type="text" disabled class="form-control" id="ios_landscape" name="ios_landscape" value='{{splashdetails.isoLandscape}}'>
+        <input type="text" disabled class="form-control" id="ios_landscape" name="ios_landscape" value='{{requestdetails.isoLandscape}}'>
     </div>  
       
       
           <div class='col-sm-6'>
       <label for="android_portrait">Android Portrait:</label>
-        <input type="text" disabled class="form-control" id="android_portrait" name="android_portrait" value='{{splashdetails.androidPortrait}}'>
+        <input type="text" disabled class="form-control" id="android_portrait" name="android_portrait" value='{{requestdetails.androidPortrait}}'>
     </div>  
       
       
           <div class='col-sm-6'>
       <label for="android_landscape">Android Landscape:</label>
-        <input type="text" disabled class="form-control" id="android_landscape" name="android_landscape" value='{{splashdetails.androidLandscape}}'>
+        <input type="text" disabled class="form-control" id="android_landscape" name="android_landscape" value='{{requestdetails.androidLandscape}}'>
     </div>  
       
       
           <div class='col-sm-6'>
       <label for="wp8_portrait">WP8 Portrait:</label>
-        <input type="text" disabled class="form-control" id="wp8_portrait" name="wp8_portrait" value='{{splashdetails.wp8Portrait}}'>
+        <input type="text" disabled class="form-control" id="wp8_portrait" name="wp8_portrait" value='{{requestdetails.wp8Portrait}}'>
     </div>  
       
       
           <div class='col-sm-6'>
       <label for="wp8_landscape">WP8 Landscape:</label>
-        <input type="text" disabled class="form-control" id="wp8_landscape" name="wp8_landscape" value='{{splashdetails.wp8Landscape}}'>
+        <input type="text" disabled class="form-control" id="wp8_landscape" name="wp8_landscape" value='{{requestdetails.wp8Landscape}}'>
     </div>  
       
       </div>
@@ -89,13 +89,7 @@
 
 {%endblock%}
  {% block javascripts %}
-<script type="text/javascript">
-
-$().ready(function() {
  
- });
- 
-</script>
 
  {% endblock %}
     

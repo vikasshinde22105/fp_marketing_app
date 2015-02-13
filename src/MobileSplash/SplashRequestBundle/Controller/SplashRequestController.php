@@ -6,7 +6,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use MobileSplash\SplashRequestBundle\Entity\SplashDetails;
 use MobileSplash\SplashRequestBundle\Form\Type\SplashRequestType;
-
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\HttpFoundation\Response;
 
 class SplashRequestController extends Controller
 {
@@ -24,7 +27,7 @@ class SplashRequestController extends Controller
                {
                 $em->persist($splashDetails);
                 $em->flush();
-               // $this->addFlash('success', $this->get('translator')->trans('admin.admin_user.flash.updated'));
+                $this->get('session')->getFlashBag()->add('notice','Your Request Saved Succesfully!');
                 return $this->redirectToRoute('mobile_splash_request_add');
                }
         return $this->render('MobileSplashSplashRequestBundle:SplashRequest:splash_request_form.html.twig', [
@@ -32,22 +35,34 @@ class SplashRequestController extends Controller
         'RequestForm' => $RequestForm->createView(),
          ]);
     }
-     public function getVendorsAction($country_id){
+    
+    public function requestListAction() 
+    {
+                $em = $this->getDoctrine()->getEntityManager();
+                $request_list = $em->getRepository('MobileSplashSplashRequestBundle:SplashDetails')->findAll();
+                return $this->render('MobileSplashSplashRequestBundle:SplashRequest:splash_requests.html.twig',array('request_list'=>$request_list));
+
+    }
+    
+    public function requestDetailsAction($id)
+    {
+          $em = $this->getDoctrine()->getManager();
+          $requestdetails = $em->getRepository('MobileSplashSplashRequestBundle:SplashDetails')
+            ->find($id);
+
+           $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new 
+            JsonEncoder()));
+            $json = $serializer->serialize($requestdetails, 'json');
+            return $this->render('MobileSplashSplashRequestBundle:SplashRequest:splash_request_details.html.twig', array('requestdetails'=>$requestdetails));
+
+    }
+    
+    public function getVendorsAction($country_id){
      
           
            $em = $this->getDoctrine()->getManager();
            $vendors = $em->getRepository('MobileSplashSplashRequestBundle:Vendors')
             ->findVendorsByCountry($country_id);
-       /*    $query = $repository->createQueryBuilder('v')
-            ->select('v.id,v.name')       
-            ->where('v.country = :country_id')
-            ->setParameter('country_id', $country_id)
-            ->orderBy('v.id', 'ASC')
-            ->getQuery();
-           
-            $vendors= $query->getResult();
-         */
-           
            $serializer = new Serializer(array(new GetSetMethodNormalizer()), array('json' => new 
             JsonEncoder()));
             $json = $serializer->serialize($vendors, 'json');
@@ -56,9 +71,9 @@ class SplashRequestController extends Controller
  
     }
     public function addRequestForm(SplashDetails $splashDetails) {
+        
         $em = $this->getDoctrine()->getEntityManager();
-          $form=$this->createForm(new SplashRequestType($em),$splashDetails);
-        $form->add('submit','submit');
-         return $form;
+        $form=$this->createForm(new SplashRequestType($em),$splashDetails);
+        return $form;
     }
 }

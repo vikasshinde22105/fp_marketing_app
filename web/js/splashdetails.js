@@ -16,7 +16,7 @@ $('#splash_Brand').selectize();
 //$('#vendor').selectize();
 
 
- $(document).ready(function() {
+ /* $(document).ready(function() {
         $("#splash").submit(function(){
              var $form = $(this).closest("#splash");
             $('#myModal').modal({show:true})
@@ -49,7 +49,7 @@ $('#splash_Brand').selectize();
         });
     });
     
-    
+   */ 
     
 /*selectize country js*/
 var xhr;

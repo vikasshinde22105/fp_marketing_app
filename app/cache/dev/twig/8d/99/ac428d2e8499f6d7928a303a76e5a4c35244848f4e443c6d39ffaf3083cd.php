@@ -1,6 +1,6 @@
 <?php
 
-/* base.html.twig */
+/* ::base.html.twig */
 class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3083cd extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -36,7 +36,7 @@ class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 22
         echo "        <link rel=\"icon\" type=\"image/x-icon\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("images/favicon.ico"), "html", null, true);
         echo "\" />
     </head>
     <body>
@@ -180,7 +180,7 @@ class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3
         echo "\">Config</a></li>
                       <li ><a href=\"";
         // line 66
-        echo $this->env->getExtension('routing')->getPath("mobile_splash_request_add");
+        echo $this->env->getExtension('routing')->getPath("mobile_splash_requests");
         echo "\">List</a></li>
                      
                     </ul>
@@ -211,7 +211,7 @@ class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3
 
     public function getTemplateName()
     {
-        return "base.html.twig";
+        return "::base.html.twig";
     }
 
     public function isTraitable()

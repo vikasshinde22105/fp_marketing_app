@@ -5,7 +5,12 @@
 
 {% block body %}
     <div class="col-sm-9 col-sm-offset-3 col-md-6 col-md-offset-2 main">
-      <h2>Splash Request Form</h2>
+        <legend><h3>Splash Request Form</h3></legend>
+      {% for flashMessage in app.session.flashbag.get('notice') %}
+ 
+          <div class="alert alert-success"> <h4>{{ flashMessage }}</h4></div>
+ 
+{% endfor %}
 <form  method="post" id='splash'>
 
  
@@ -24,7 +29,10 @@
              {{ form_row(RequestForm.androidLandscape) }}
              {{ form_row(RequestForm.wp8Portrait) }}
              {{ form_row(RequestForm.wp8Landscape) }}
+
              </div>  
+             {{ form_row(RequestForm.save) }}
+
         {{ form_row(RequestForm._token) }}
         {{form_widget(RequestForm._token)}}
 

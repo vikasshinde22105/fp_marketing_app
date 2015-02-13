@@ -143,6 +143,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'mobile_splash_vendors')), array (  '_controller' => 'MobileSplash\\SplashRequestBundle\\Controller\\SplashRequestController::getVendorsAction',));
             }
 
+            if (0 === strpos($pathinfo, '/splash/request')) {
+                // mobile_splash_requests
+                if ($pathinfo === '/splash/requests') {
+                    return array (  '_controller' => 'MobileSplash\\SplashRequestBundle\\Controller\\SplashRequestController::requestListAction',  '_route' => 'mobile_splash_requests',);
+                }
+
+                // mobile_splash_request_details
+                if (0 === strpos($pathinfo, '/splash/requestDetails') && preg_match('#^/splash/requestDetails/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'mobile_splash_request_details')), array (  '_controller' => 'MobileSplash\\SplashRequestBundle\\Controller\\SplashRequestController::requestDetailsAction',));
+                }
+
+            }
+
         }
 
         // homepage

@@ -186,4 +186,8 @@ class Vendors
     {
         return $this->country;
     }
+           public function __toString()
+    {
+    return (string) $this->getName();
+    }
 }
