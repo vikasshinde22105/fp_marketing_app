@@ -3,11 +3,88 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{ asset('css/selectize.css')}}">
+        <link href="{{ asset('css/dashboard.css') }}" type="text/css" rel="stylesheet" />
+        <link href="{{ asset('css/dataTable.bootstrap.css') }}" type="text/css" rel="stylesheet" />
+        
+     	<script src="{{ asset('js/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/selectize.js') }}"></script>
+        <script src="{{ asset('js/dataTable.min.js')}}"></script>
+      	<script src="{{ asset('js/dataTable.bootstrap.js')}}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+
+        
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+            <header id="header">
+                
+                                      {% block navigation %}
+                            <nav class="navbar navbar-inverse navbar-fixed-top custom-header">
+                                <div class="container-fluid">
+                                  <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                      <span class="sr-only">Toggle navigation</span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                    </button>
+                                    <a class="navbar-brand" href="#"><img src="https://assets.foodpanda.in/layout/themes/margherita/images/en/logo.png?v=1421752687" alt="foodpanda"></a>
+                                  </div>
+                                  <div id="navbar" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                      <li><a href="#">Dashboard</a></li>
+                                      <li><a href="#">Settings</a></li>
+                                      <li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profile <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                          <li><a href="#">Edit</a></li>
+                                          <li><a href="#">Logout</a></li>
+                                        </ul>
+                                      </li>
+                                    </ul>
+                                    <form class="navbar-form navbar-right">
+                                      <input type="text" class="form-control" placeholder="Search...">
+                                    </form>
+                                  </div>
+                                </div>
+                              </nav>
+                    {% endblock %}
+            </header>
+
+             <aside class="sidebar">
+                {% block sidebar %}
+                <div class="col-sm-3 col-md-2 sidebar">
+                    <ul class="nav nav-sidebar" id='sidebar'>
+                      <li class="active"><a href="#">Mobile Splash <span class="sr-only">(current)</span></a></li>
+                      <li class='tabopen' ><a href="{{ path('splash_form') }}">Config</a></li>
+                      <li ><a href="{{ path('splash_list') }}">List</a></li>
+                     
+                    </ul>
+ 
+                </div>
+                {% endblock %}
+            </aside>
+            <section class="main-col">
+                {% block body %}{% endblock %}
+                {% block javascripts %}
+
+                {% endblock %}
+            </section>
+
+
+            <div id="footer">
+                {% block footer %}
+                 {% endblock %}
+            </div>
+    </body>
+</html>
+
+       
     </body>
 </html>
