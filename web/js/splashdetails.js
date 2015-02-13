@@ -64,7 +64,7 @@ $select_country = $('#splash_country').selectize({
         select_vendors.load(function(callback) {
             xhr && xhr.abort();
             xhr = $.ajax({
-                url: 'splash-screen/web/app_dev.php/splash/getVendors/'+value,
+                url: 'fp_marketing_app/web/app_dev.php/splash/getVendors/'+value,
                 datatype:"json",
                 success: function(results) {
                     var obj  = JSON.parse( results );

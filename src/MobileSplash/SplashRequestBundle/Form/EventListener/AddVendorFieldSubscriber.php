@@ -1,5 +1,5 @@
 <?php
-namespace Splash\SplashBundle\Form\EventListener;
+namespace MobileSplash\SplashRequestBundle\Form\EventListener;
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -28,7 +28,7 @@ class AddVendorFieldSubscriber implements EventSubscriberInterface
     private function addVendorForm($form, $country_id)
     {
         $formOptions = array(
-            'class'         => 'SplashSplashBundle:Vendors',
+            'class'         => 'MobileSplashSplashRequestBundle:Vendors',
             'label'         => 'vendor',
             'property' => 'name',
             'attr'          => array(
