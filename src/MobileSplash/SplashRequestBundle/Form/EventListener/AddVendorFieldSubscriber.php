@@ -32,8 +32,8 @@ class AddVendorFieldSubscriber implements EventSubscriberInterface
             'label'         => 'vendor',
             'property' => 'name',
             'attr'          => array(
-                'placeholder' => 'choose your vendor',
-                'class'=>'form-control'
+                'placeholder' => 'choose your vendor'
+                
             ),
             'query_builder' => function (EntityRepository $repository) use ($country_id) {
                 $qb = $repository->createQueryBuilder('vendors')
