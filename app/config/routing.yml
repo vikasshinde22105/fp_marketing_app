@@ -1,0 +1,7 @@
+mobile_splash_splash_request:
+    resource: "@MobileSplashSplashRequestBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation

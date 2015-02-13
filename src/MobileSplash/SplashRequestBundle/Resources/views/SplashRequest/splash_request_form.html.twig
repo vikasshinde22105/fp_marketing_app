@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Splash Configration{% endblock %}
+
+
+{% block body %}
+    <div class="col-sm-9 col-sm-offset-3 col-md-6 col-md-offset-2 main">
+      <h2>Splash Request Form</h2>
+<form action="{{ path('splash_add') }}" method="post" id='splash'>
+
+ 
+             {{ form_row(form.Brand) }}
+              {{ form_row(form.country) }}
+             {{ form_row(form.vendor) }}
+             {{ form_row(form.logoUrl) }}
+             {{ form_row(form.vendorDomain) }}
+             {{ form_row(form.headline) }}
+             {{ form_row(form.subline) }}
+             {{ form_row(form.customizedBackground) }}
+             <div id='customizedfield'>
+             {{ form_row(form.isoPortrait) }}
+             {{ form_row(form.isoLandscape) }}
+             {{ form_row(form.androidPortrait) }}
+             {{ form_row(form.androidLandscape) }}
+             {{ form_row(form.wp8Portrait) }}
+             {{ form_row(form.wp8Landscape) }}
+             </div>  
+        {{ form_row(form._token) }}
+        {{form_widget(form._token)}}
+
+        {{form_end(form)}}
+
+
+    </div>
+    {% endblock %}
+
+     {% block javascripts   %}
+
+            <script src="{{ asset('js/splashdetails.js') }}"></script>
+       <script type='text/javascript'>
+            $().ready(function() { 
+                $('#customizedfield').hide();
+                $('#splash_customizedBackground').change(function() {
+                    if($(this).val() == 0){
+                    $('#customizedfield').hide(); 
+                     }
+                    else  $('#customizedfield').show();
+                })  
+              });
+            
+       </script>
+ {% endblock %}

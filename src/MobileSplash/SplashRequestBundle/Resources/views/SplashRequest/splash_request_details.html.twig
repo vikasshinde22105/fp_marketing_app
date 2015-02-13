@@ -1,0 +1,101 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Splash Configration{% endblock %}
+
+
+{% block body %}
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+  <h2>Splash Request Form</h2>
+  <form role="form" id="splash_form" method="post" action="{{ path('splash_add') }}">
+    <div class="form-group">
+      <label for="brand">Brand:</label>
+      <input type='text' disabled class="form-control"  name="brand_name" value='{{splashdetails.brand.name}}' />
+      
+    </div>
+    <div class="form-group">
+      <label for="country">Country:</label>
+          <input type='text'disabled class="form-control" name="country_name" value='{{splashdetails.country.name}}' />
+     </div>
+      
+    <div class="form-group">
+      <label for="vendor_code">Vendor code:</label>
+               <input type='text' disabled class="form-control" name="vendor_name" value='{{splashdetails.vendor.name}}' />
+
+                 </select>  
+    </div>  
+ 
+    <div class="form-group">
+      <label for="logo_url">Logo URL:</label>
+        <input type="text" disabled class="form-control" id="vendor_logo" name="vendor_logo" value='{{splashdetails.logoUrl}}'/>
+    </div>
+    
+    <div class="form-group">
+      <label for="vendor_domain">Vendor domain:</label>
+        <input type="text" disabled class="form-control" id="vendor_domain" name="vendor_domain"value='{{splashdetails.vendorDomain}}'/>
+    </div>  
+      
+    <div class="form-group">
+      <label for="headline">Headline:</label>
+        <input type="text" disabled class="form-control" id="headline" name="headline" value='{{splashdetails.headline}}'/>
+    </div>  
+      
+    <div class="form-group">
+      <label for="subline">Subline:</label>
+        <input type="text" disabled class="form-control" id="subline" name="subline" value='{{splashdetails.subline}}'/>
+    </div>  
+      
+   
+      <div id="customized">
+    <div class='col-sm-6'>
+      <label for="ios_portrait">IOS Portrait:</label>
+        <input type="text" disabled class="form-control" id="ios_portrait" name="ios_portrait" value='{{splashdetails.isoPortrait}}'>
+    </div>  
+      
+      
+          <div class='col-sm-6'>
+      <label for="ios_landscape">IOS Landscape:</label>
+        <input type="text" disabled class="form-control" id="ios_landscape" name="ios_landscape" value='{{splashdetails.isoLandscape}}'>
+    </div>  
+      
+      
+          <div class='col-sm-6'>
+      <label for="android_portrait">Android Portrait:</label>
+        <input type="text" disabled class="form-control" id="android_portrait" name="android_portrait" value='{{splashdetails.androidPortrait}}'>
+    </div>  
+      
+      
+          <div class='col-sm-6'>
+      <label for="android_landscape">Android Landscape:</label>
+        <input type="text" disabled class="form-control" id="android_landscape" name="android_landscape" value='{{splashdetails.androidLandscape}}'>
+    </div>  
+      
+      
+          <div class='col-sm-6'>
+      <label for="wp8_portrait">WP8 Portrait:</label>
+        <input type="text" disabled class="form-control" id="wp8_portrait" name="wp8_portrait" value='{{splashdetails.wp8Portrait}}'>
+    </div>  
+      
+      
+          <div class='col-sm-6'>
+      <label for="wp8_landscape">WP8 Landscape:</label>
+        <input type="text" disabled class="form-control" id="wp8_landscape" name="wp8_landscape" value='{{splashdetails.wp8Landscape}}'>
+    </div>  
+      
+      </div>
+      
+   </form>
+                
+</div>
+
+{%endblock%}
+ {% block javascripts %}
+<script type="text/javascript">
+
+$().ready(function() {
+ 
+ });
+ 
+</script>
+
+ {% endblock %}
+    
