@@ -40,7 +40,7 @@ class __TwigTemplate_ac8a0076f3907679154cddcfd44e6ab96cd06a96ab7a3e10b62cb5c7fba
         echo "
   
         <div class=\"col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main\">
-                  <h1 class=\"page-header\"> Splash Request List</h1>
+                   <legend><h3 class=\"page-header\">Splash Request List</h3></legend> 
 
                   <!-- <h2 class=\"sub-header\">Section title</h2> -->
                   <form method=\"\" action=\"\">
@@ -97,9 +97,9 @@ class __TwigTemplate_ac8a0076f3907679154cddcfd44e6ab96cd06a96ab7a3e10b62cb5c7fba
                           <td>";
             // line 33
             if (($this->getAttribute($context["request"], "status", array()) == 1)) {
-                echo "Open";
+                echo "<span class=\"label label-success\">Open </span>";
             } else {
-                echo " Close";
+                echo "<span class=\"label label-danger\"> Close</span>";
             }
             echo "</td>
                         </tr>

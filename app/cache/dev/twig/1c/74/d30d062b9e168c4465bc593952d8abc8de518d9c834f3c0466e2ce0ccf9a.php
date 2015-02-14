@@ -126,22 +126,25 @@ class __TwigTemplate_1c74d30d062b9e168c4465bc593952d8abc8de518d9c834f3c0466e2ce0
         echo "
 
              </div>  
-             ";
-        // line 34
+             <br/><br/>
+            <legend  style=\"text-align: center\">";
+        // line 35
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "save", array()), 'row');
-        echo "
+        echo "</legend>
+
+             
 
         ";
-        // line 36
+        // line 39
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "_token", array()), 'row');
         echo "
         ";
-        // line 37
+        // line 40
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), "_token", array()), 'widget');
         echo "
 
         ";
-        // line 39
+        // line 42
         echo         $this->env->getExtension('form')->renderer->renderBlock((isset($context["RequestForm"]) ? $context["RequestForm"] : $this->getContext($context, "RequestForm")), 'form_end');
         echo "
 
@@ -150,13 +153,13 @@ class __TwigTemplate_1c74d30d062b9e168c4465bc593952d8abc8de518d9c834f3c0466e2ce0
     ";
     }
 
-    // line 45
+    // line 48
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 46
+        // line 49
         echo "
             <script src=\"";
-        // line 47
+        // line 50
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/splashdetails.js"), "html", null, true);
         echo "\"></script>
        <script type='text/javascript'>
@@ -186,6 +189,6 @@ class __TwigTemplate_1c74d30d062b9e168c4465bc593952d8abc8de518d9c834f3c0466e2ce0
 
     public function getDebugInfo()
     {
-        return array (  160 => 47,  157 => 46,  154 => 45,  145 => 39,  140 => 37,  136 => 36,  131 => 34,  125 => 31,  121 => 30,  117 => 29,  113 => 28,  109 => 27,  105 => 26,  100 => 24,  96 => 23,  92 => 22,  88 => 21,  84 => 20,  80 => 19,  76 => 18,  72 => 17,  67 => 14,  58 => 11,  55 => 10,  51 => 9,  47 => 7,  44 => 6,  38 => 3,  11 => 1,);
+        return array (  163 => 50,  160 => 49,  157 => 48,  148 => 42,  143 => 40,  139 => 39,  132 => 35,  125 => 31,  121 => 30,  117 => 29,  113 => 28,  109 => 27,  105 => 26,  100 => 24,  96 => 23,  92 => 22,  88 => 21,  84 => 20,  80 => 19,  76 => 18,  72 => 17,  67 => 14,  58 => 11,  55 => 10,  51 => 9,  47 => 7,  44 => 6,  38 => 3,  11 => 1,);
     }
 }

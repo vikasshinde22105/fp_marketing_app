@@ -23,10 +23,18 @@ class __TwigTemplate_ac48897bc434190253e563c8bb52f49106c773abaa697fd766dd195ded1
 
     <div class=\"container\">
     <div class=\"col-lg-8 col-lg-offset-2 text-center\">
-        <div class=\"logo\">
-        <h1>404</h1>
-        </div>
-        <h4 class=\"alert alert-danger\" role=\"alert\">  <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span> &nbsp &nbsp Oops, an error has occurred. Forbidden!</h4>
+        <div class=\"panel panel-danger\">
+
+    <div class=\"panel-heading\">
+
+        <h3 class=\"panel-title  \" role=\"alert\">   <span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span> &nbsp &nbsp Oops, an error has occurred. Forbidden!</h3>
+
+    </div>
+
+    <div class=\"panel-body\">The server is temporarily unable to handle the request
+
+ 
+       
         <p class=\"lead text-muted\"></p>
         <div class=\"clearfix\"></div>
             <div class=\"col-lg-6 col-lg-offset-3\">
@@ -41,15 +49,17 @@ class __TwigTemplate_ac48897bc434190253e563c8bb52f49106c773abaa697fd766dd195ded1
         <div class=\"col-lg-6 col-lg-offset-3\">
             <div class=\"btn-group btn-group-justified\">
               <a href=\"";
-        // line 25
+        // line 33
         echo $this->env->getExtension('routing')->getPath("mobile_splash_request_add");
         echo "\" class=\"btn btn-info\">Return Dashboard</a>
               <a href=\"";
-        // line 26
+        // line 34
         echo $this->env->getExtension('routing')->getPath("mobile_splash_request_add");
         echo "\" class=\"btn btn-warning\">Return Website</a>
             </div>
         </div>
+      </div>
+.</div>
     </div><!-- /.col-lg-8 col-offset-2 -->
    </div>
 
@@ -72,6 +82,6 @@ class __TwigTemplate_ac48897bc434190253e563c8bb52f49106c773abaa697fd766dd195ded1
 
     public function getDebugInfo()
     {
-        return array (  49 => 26,  45 => 25,  19 => 1,);
+        return array (  57 => 34,  53 => 33,  19 => 1,);
     }
 }

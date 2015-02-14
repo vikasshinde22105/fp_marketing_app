@@ -52,24 +52,24 @@ class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3
                 ";
         // line 61
         $this->displayBlock('sidebar', $context, $blocks);
-        // line 72
+        // line 101
         echo "            </aside>
             <section class=\"main-col\">
                 ";
-        // line 74
+        // line 103
         $this->displayBlock('body', $context, $blocks);
-        // line 75
+        // line 104
         echo "                ";
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 78
+        // line 107
         echo "            </section>
 
 
             <div id=\"footer\">
                 ";
-        // line 82
+        // line 111
         $this->displayBlock('footer', $context, $blocks);
-        // line 84
+        // line 113
         echo "            </div>
     </body>
 </html>
@@ -171,7 +171,7 @@ class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3
     public function block_sidebar($context, array $blocks = array())
     {
         // line 62
-        echo "                <div class=\"col-sm-3 col-md-2 sidebar\">
+        echo "            <!--    <div class=\"col-sm-3 col-md-2 sidebar\">
                     <ul class=\"nav nav-sidebar\" id='sidebar'>
                       <li class=\"active\"><a href=\"#\">Mobile Splash <span class=\"sr-only\">(current)</span></a></li>
                       <li class='tabopen' ><a href=\"";
@@ -186,26 +186,61 @@ class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3
                     </ul>
  
                 </div>
+             -->       
+
+    <div class=\"col-sm-3 col-md-2 sidebar\">
+
+        <a href=\"\" class=\"list-group-item active\">
+
+            Mobile Splash 
+
+        </a>
+
+        <a href=\"";
+        // line 81
+        echo $this->env->getExtension('routing')->getPath("mobile_splash_request_add");
+        echo "\" class=\"list-group-item\">
+
+            <span class=\"glyphicon glyphicon-plus\"></span> Config <span class=\"badge\"></span>
+
+        </a>
+
+        <a href=\"";
+        // line 87
+        echo $this->env->getExtension('routing')->getPath("mobile_splash_requests");
+        echo "\" class=\"list-group-item\">
+
+            <span class=\"glyphicon glyphicon-th-list\"></span> List <span class=\"badge\">50</span>
+
+        </a>
+
+       
+
+    </div>
+ 
+ 
+
+
                 ";
     }
 
-    // line 74
+    // line 103
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 75
+    // line 104
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 76
+        // line 105
         echo "
                 ";
     }
 
-    // line 82
+    // line 111
     public function block_footer($context, array $blocks = array())
     {
-        // line 83
+        // line 112
         echo "                 ";
     }
 
@@ -221,6 +256,6 @@ class __TwigTemplate_8d99ac428d2e8499f6d7928a303a76e5a4c35244848f4e443c6d39ffaf3
 
     public function getDebugInfo()
     {
-        return array (  209 => 83,  206 => 82,  201 => 76,  198 => 75,  193 => 74,  183 => 66,  179 => 65,  174 => 62,  171 => 61,  138 => 28,  135 => 27,  125 => 16,  121 => 15,  117 => 14,  113 => 13,  109 => 12,  104 => 10,  100 => 9,  96 => 8,  93 => 7,  90 => 6,  84 => 5,  73 => 84,  71 => 82,  65 => 78,  62 => 75,  60 => 74,  56 => 72,  54 => 61,  49 => 58,  47 => 27,  38 => 22,  36 => 6,  32 => 5,  26 => 1,);
+        return array (  244 => 112,  241 => 111,  236 => 105,  233 => 104,  228 => 103,  210 => 87,  201 => 81,  183 => 66,  179 => 65,  174 => 62,  171 => 61,  138 => 28,  135 => 27,  125 => 16,  121 => 15,  117 => 14,  113 => 13,  109 => 12,  104 => 10,  100 => 9,  96 => 8,  93 => 7,  90 => 6,  84 => 5,  73 => 113,  71 => 111,  65 => 107,  62 => 104,  60 => 103,  56 => 101,  54 => 61,  49 => 58,  47 => 27,  38 => 22,  36 => 6,  32 => 5,  26 => 1,);
     }
 }
