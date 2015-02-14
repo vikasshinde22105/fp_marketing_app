@@ -741,7 +741,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_5ac65450466d104d93c75e9ada7e90c9ae8d2a83dcaef9a0581e4ba935695830');
+        $instance->setNamespace('sf2orm_default_009c66a3166b16fd56e9ad5e80bf3f58eb770b0fbe31ca7cabf75a54f04274f4');
 
         return $instance;
     }
@@ -758,7 +758,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_5ac65450466d104d93c75e9ada7e90c9ae8d2a83dcaef9a0581e4ba935695830');
+        $instance->setNamespace('sf2orm_default_009c66a3166b16fd56e9ad5e80bf3f58eb770b0fbe31ca7cabf75a54f04274f4');
 
         return $instance;
     }
@@ -775,7 +775,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_5ac65450466d104d93c75e9ada7e90c9ae8d2a83dcaef9a0581e4ba935695830');
+        $instance->setNamespace('sf2orm_default_009c66a3166b16fd56e9ad5e80bf3f58eb770b0fbe31ca7cabf75a54f04274f4');
 
         return $instance;
     }
