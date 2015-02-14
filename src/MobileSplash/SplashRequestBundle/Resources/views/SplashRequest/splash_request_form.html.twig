@@ -5,30 +5,41 @@
 
 {% block body %}
     <div class="col-sm-9 col-sm-offset-3 col-md-6 col-md-offset-2 main">
-      <h2>Splash Request Form</h2>
-<form action="{{ path('splash_add') }}" method="post" id='splash'>
+        <legend><h3>Splash Request Form</h3></legend>
+      {% for flashMessage in app.session.flashbag.get('notice') %}
+ 
+          <div class="alert alert-success"> <h4>{{ flashMessage }}</h4></div>
+ 
+{% endfor %}
+<form  method="post" id='splash'>
 
  
-             {{ form_row(form.Brand) }}
-              {{ form_row(form.country) }}
-             {{ form_row(form.vendor) }}
-             {{ form_row(form.logoUrl) }}
-             {{ form_row(form.vendorDomain) }}
-             {{ form_row(form.headline) }}
-             {{ form_row(form.subline) }}
-             {{ form_row(form.customizedBackground) }}
+             {{ form_row(RequestForm.Brand) }}
+              {{ form_row(RequestForm.country) }}
+             {{ form_row(RequestForm.vendor) }}
+             {{ form_row(RequestForm.logoUrl) }}
+             {{ form_row(RequestForm.vendorDomain) }}
+             {{ form_row(RequestForm.headline) }}
+             {{ form_row(RequestForm.subline) }}
+             {{ form_row(RequestForm.customizedBackground) }}
              <div id='customizedfield'>
-             {{ form_row(form.isoPortrait) }}
-             {{ form_row(form.isoLandscape) }}
-             {{ form_row(form.androidPortrait) }}
-             {{ form_row(form.androidLandscape) }}
-             {{ form_row(form.wp8Portrait) }}
-             {{ form_row(form.wp8Landscape) }}
-             </div>  
-        {{ form_row(form._token) }}
-        {{form_widget(form._token)}}
+             {{ form_row(RequestForm.isoPortrait) }}
+             {{ form_row(RequestForm.isoLandscape) }}
+             {{ form_row(RequestForm.androidPortrait) }}
+             {{ form_row(RequestForm.androidLandscape) }}
+             {{ form_row(RequestForm.wp8Portrait) }}
+             {{ form_row(RequestForm.wp8Landscape) }}
 
-        {{form_end(form)}}
+             </div>  
+             <br/><br/>
+            <legend  style="text-align: center">{{ form_row(RequestForm.save) }}</legend>
+
+             
+
+        {{ form_row(RequestForm._token) }}
+        {{form_widget(RequestForm._token)}}
+
+        {{form_end(RequestForm)}}
 
 
     </div>

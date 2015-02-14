@@ -127,6 +127,7 @@ class appDevDebugProjectContainer extends Container
             'fragment.renderer.ssi' => 'getFragment_Renderer_SsiService',
             'http_kernel' => 'getHttpKernelService',
             'kernel' => 'getKernelService',
+            'kernel.listener.acme_foo_exception_listener' => 'getKernel_Listener_AcmeFooExceptionListenerService',
             'locale_listener' => 'getLocaleListenerService',
             'logger' => 'getLoggerService',
             'monolog.handler.console' => 'getMonolog_Handler_ConsoleService',
@@ -535,6 +536,7 @@ class appDevDebugProjectContainer extends Container
 
         $instance->addListenerService('kernel.controller', array(0 => 'data_collector.router', 1 => 'onKernelController'), 0);
         $instance->addListenerService('kernel.request', array(0 => 'assetic.request_listener', 1 => 'onKernelRequest'), 0);
+        $instance->addListenerService('kernel.exception', array(0 => 'kernel.listener.acme_foo_exception_listener', 1 => 'onKernelException'), 0);
         $instance->addListenerService('kernel.controller', array(0 => 'acme.demo.listener', 1 => 'onKernelController'), 0);
         $instance->addSubscriberService('response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener');
         $instance->addSubscriberService('streamed_response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\StreamedResponseListener');
@@ -664,27 +666,24 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedXmlDriver(array(($this->targetDirs[3].'/src/MobileSplash/SplashRequestBundle/Resources/config/doctrine') => 'MobileSplash\\SplashRequestBundle\\Entity'));
-        $a->setGlobalBasename('mapping');
+        $a = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $a->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver($this->get('annotation_reader'), array(0 => ($this->targetDirs[3].'/src/MobileSplash/SplashRequestBundle/Entity'))), 'MobileSplash\\SplashRequestBundle\\Entity');
 
-        $b = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
-        $b->addDriver($a, 'MobileSplash\\SplashRequestBundle\\Entity');
+        $b = new \Doctrine\ORM\Configuration();
+        $b->setEntityNamespaces(array('MobileSplashSplashRequestBundle' => 'MobileSplash\\SplashRequestBundle\\Entity'));
+        $b->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
+        $b->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
+        $b->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
+        $b->setMetadataDriverImpl($a);
+        $b->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
+        $b->setProxyNamespace('Proxies');
+        $b->setAutoGenerateProxyClasses(true);
+        $b->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $b->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $b->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
+        $b->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
 
-        $c = new \Doctrine\ORM\Configuration();
-        $c->setEntityNamespaces(array('MobileSplashSplashRequestBundle' => 'MobileSplash\\SplashRequestBundle\\Entity'));
-        $c->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
-        $c->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
-        $c->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
-        $c->setMetadataDriverImpl($b);
-        $c->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
-        $c->setProxyNamespace('Proxies');
-        $c->setAutoGenerateProxyClasses(true);
-        $c->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $c->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $c->setNamingStrategy(new \Doctrine\ORM\Mapping\DefaultNamingStrategy());
-        $c->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
-
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $c);
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $b);
 
         $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
 
@@ -742,7 +741,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_metadata_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_ba6fea1592dea68a0563072ed60e39178b567e874f23c0d0732a4a842bbe7cbf');
+        $instance->setNamespace('sf2orm_default_5ac65450466d104d93c75e9ada7e90c9ae8d2a83dcaef9a0581e4ba935695830');
 
         return $instance;
     }
@@ -759,7 +758,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_query_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_ba6fea1592dea68a0563072ed60e39178b567e874f23c0d0732a4a842bbe7cbf');
+        $instance->setNamespace('sf2orm_default_5ac65450466d104d93c75e9ada7e90c9ae8d2a83dcaef9a0581e4ba935695830');
 
         return $instance;
     }
@@ -776,7 +775,7 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['doctrine_cache.providers.doctrine.orm.default_result_cache'] = $instance = new \Doctrine\Common\Cache\ArrayCache();
 
-        $instance->setNamespace('sf2orm_default_ba6fea1592dea68a0563072ed60e39178b567e874f23c0d0732a4a842bbe7cbf');
+        $instance->setNamespace('sf2orm_default_5ac65450466d104d93c75e9ada7e90c9ae8d2a83dcaef9a0581e4ba935695830');
 
         return $instance;
     }
@@ -1491,6 +1490,19 @@ class appDevDebugProjectContainer extends Container
     protected function getKernelService()
     {
         throw new RuntimeException('You have requested a synthetic service ("kernel"). The DIC does not know how to construct this service.');
+    }
+
+    /**
+     * Gets the 'kernel.listener.acme_foo_exception_listener' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \MobileSplash\SplashRequestBundle\Listener\ExceptionListener A MobileSplash\SplashRequestBundle\Listener\ExceptionListener instance.
+     */
+    protected function getKernel_Listener_AcmeFooExceptionListenerService()
+    {
+        return $this->services['kernel.listener.acme_foo_exception_listener'] = new \MobileSplash\SplashRequestBundle\Listener\ExceptionListener($this->get('templating'), $this->get('kernel'));
     }
 
     /**
@@ -3729,7 +3741,7 @@ class appDevDebugProjectContainer extends Container
             'kernel.root_dir' => $this->targetDirs[2],
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
-            'kernel.name' => 'app',
+            'kernel.name' => 'ap_',
             'kernel.cache_dir' => __DIR__,
             'kernel.logs_dir' => ($this->targetDirs[2].'/logs'),
             'kernel.bundles' => array(

@@ -1,13 +1,12 @@
 <?php
 
-namespace Splash\SplashBundle\Form\Type;
+namespace MobileSplash\SplashRequestBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityManager;
-use Symfony\Component\Form\FormEvents;
-use Splash\SplashBundle\Form\EventListener\AddVendorFieldSubscriber;
+use  MobileSplash\SplashRequestBundle\Form\EventListener\AddVendorFieldSubscriber;
  
 class SplashRequestType extends AbstractType
 {
@@ -21,11 +20,11 @@ class SplashRequestType extends AbstractType
     {        $propertyPathToCity = 'vendor';
        
           $builder->add("Brand",'entity',array(
-                        'class'=>'SplashSplashBundle:Brands',
+                        'class'=>'MobileSplashSplashRequestBundle:Brands',
                         'attr'=>array('id'=>'brand')                
                         ))
                 ->add('country','entity',array(
-                        'class' =>'SplashSplashBundle:Countries')
+                        'class' =>'MobileSplashSplashRequestBundle:Countries')
                      )           
                 ->addEventSubscriber(new AddVendorFieldSubscriber($propertyPathToCity))
  
@@ -55,13 +54,13 @@ class SplashRequestType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Splash\SplashBundle\Entity\SplashDetails',
+            'data_class' => 'MobileSplash\SplashRequestBundle\Entity\SplashDetails',
         ));
     }
     
     private function getBrands() {
            
-            $emm = $this->em->getRepository('SplashSplashBundle:Brands');        
+            $emm = $this->em->getRepository('MobileSplashSplashRequestBundle:Brands');        
    // $results = $er->createQueryBuilder('e')
      //          ->groupBy('e.SplashDetails')
        //        ->orderBy('e.SplashDetails', 'ASC');

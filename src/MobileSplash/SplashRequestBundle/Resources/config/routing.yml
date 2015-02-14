@@ -1,3 +1,21 @@
 mobile_splash_splash_request_homepage:
     path:     /hello/{name}
     defaults: { _controller: MobileSplashSplashRequestBundle:Default:index }
+
+mobile_splash_request_add:
+    path: /splash/request/add
+    defaults:
+        _controller: MobileSplashSplashRequestBundle:SplashRequest:add
+        
+mobile_splash_vendors:
+    path: /splash/getVendors/{country_id}
+    defaults: {_controller: MobileSplashSplashRequestBundle:SplashRequest:getVendors }
+    
+mobile_splash_requests:
+    path: /splash/requests
+    defaults: { _controller: MobileSplashSplashRequestBundle:SplashRequest:requestList}
+    
+mobile_splash_request_details:
+    path: /splash/requestDetails/{id}
+    defaults: { _controller: MobileSplashSplashRequestBundle:SplashRequest:requestDetails}
+    

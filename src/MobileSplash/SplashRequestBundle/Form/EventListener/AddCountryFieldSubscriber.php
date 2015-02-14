@@ -1,5 +1,5 @@
 <?php
-namespace Splash\SplashBundle\Form\EventListener;
+namespace MobileSplash\SplashRequestBundle\Form\EventListener;
 
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -27,7 +27,7 @@ class AddCountryFieldSubscriber implements EventSubscriberInterface
     private function addCountryForm($form, $country = null)
     {
         $formOptions = array(
-            'class'         => 'SplashSplashBundle:Countries',
+            'class'         => 'MobileSplashSplashRequestBundle:Countries',
             'property' => 'name',
             'mapped'        => false,
             'label'         => 'Country',
