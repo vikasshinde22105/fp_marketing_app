@@ -81,6 +81,7 @@
   'MobileSplashSplashRequestBundle:SplashRequest:splash_request_form.html.twig' => '/home/vikasshinde/NetBeansProjects/fp_marketing_app/src/MobileSplash/SplashRequestBundle/Resources/views/SplashRequest/splash_request_form.html.twig',
   'MobileSplashSplashRequestBundle:SplashRequest:splash_request_details.html.twig' => '/home/vikasshinde/NetBeansProjects/fp_marketing_app/src/MobileSplash/SplashRequestBundle/Resources/views/SplashRequest/splash_request_details.html.twig',
   'MobileSplashSplashRequestBundle:SplashRequest:splash_request_from_test.html.twig' => '/home/vikasshinde/NetBeansProjects/fp_marketing_app/src/MobileSplash/SplashRequestBundle/Resources/views/SplashRequest/splash_request_from_test.html.twig',
+  'MobileSplashSplashRequestBundle:Exception:exception.html.twig' => '/home/vikasshinde/NetBeansProjects/fp_marketing_app/src/MobileSplash/SplashRequestBundle/Resources/views/Exception/exception.html.twig',
   'DebugBundle:Profiler:dump.html.twig' => '/home/vikasshinde/NetBeansProjects/fp_marketing_app/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views/Profiler/dump.html.twig',
   'AcmeDemoBundle:Welcome:index.html.twig' => '/home/vikasshinde/NetBeansProjects/fp_marketing_app/src/Acme/DemoBundle/Resources/views/Welcome/index.html.twig',
   'AcmeDemoBundle:Secured:login.html.twig' => '/home/vikasshinde/NetBeansProjects/fp_marketing_app/src/Acme/DemoBundle/Resources/views/Secured/login.html.twig',
