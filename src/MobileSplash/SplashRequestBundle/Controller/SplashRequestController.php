@@ -23,13 +23,17 @@ class SplashRequestController extends Controller
          $splashDetails = new SplashDetails();
          $RequestForm = $this->addRequestForm($splashDetails);
          $RequestForm->handleRequest($request);
-            if ($RequestForm->isValid()) 
-               {
-                $em->persist($splashDetails);
-                $em->flush();
-                $this->get('session')->getFlashBag()->add('notice','Your Request Saved Succesfully!');
-                return $this->redirectToRoute('mobile_splash_request_add');
-               }
+        if ($RequestForm->isValid()) 
+           {
+            $em->persist($splashDetails);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('success','Your Request Saved Succesfully!');
+            return $this->redirectToRoute('mobile_splash_request_add');
+           }
+
+        if($RequestForm->getErrorsAsString()) {
+             $this->get('session')->getFlashBag()->add('danger',$RequestForm->getErrorsAsString());
+        }
         return $this->render('MobileSplashSplashRequestBundle:SplashRequest:splash_request_form.html.twig', [
         'entity' => $splashDetails,
         'RequestForm' => $RequestForm->createView(),

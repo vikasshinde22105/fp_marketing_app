@@ -19,13 +19,14 @@ class SplashRequestType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {        $propertyPathToCity = 'vendor';
        
-          $builder->add("Brand",'entity',array(
+          $builder->add("brand",'entity',array(
                         'class'=>'MobileSplashSplashRequestBundle:Brands',
-                        'attr'=>array('id'=>'brand')                
+                        'attr'=>array('id'=>'brand'),
+                        'placeholder'=>'Choose you brand'
                         ))
                 ->add('country','entity',array(
-                        'class' =>'MobileSplashSplashRequestBundle:Countries')
-                     )           
+                        'class' =>'MobileSplashSplashRequestBundle:Countries',
+                        'placeholder'=>'Choose you country'))
                 ->addEventSubscriber(new AddVendorFieldSubscriber($propertyPathToCity))
  
                 //->add('vendor','choice',array('attr'=>array('placeholder'=>'select Vendor')))
