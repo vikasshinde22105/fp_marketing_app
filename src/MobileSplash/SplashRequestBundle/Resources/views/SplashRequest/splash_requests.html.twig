@@ -7,6 +7,7 @@
                    <legend><h3 class="page-header">Splash Request List</h3></legend> 
 
                   <!-- <h2 class="sub-header">Section title</h2> -->
+                 <input type="hidden" id="count" name='count' value="{{ request_list|length}}"/>
                   <form method="" action="">
                   <div class="table-responsive">
                     <table id="table" class="table table-striped">
@@ -21,16 +22,18 @@
                         </tr>
                       </thead>
                       <tbody>
-                          
-                      
-                        {% for request in request_list %}
+                         {% for request in request_list %}
                            <tr>
                                <td><a href="requestDetails/{{request.id}}">{% if (request.brand!=null) %}{{request.brand.name }} {% endif%}</a></td>
                           <td>{% if (request.vendor!=null) %}{{request.vendor.name }} {% endif%}</td>
                           <td>{{request.requesterName}}</td>
                           <td>{{request.isoCode}}</td>
                           <td>{{request.createdOn|date}}</td>
-                          <td>{% if request.status == 1 %}<span class="label label-success">Open </span>{% else %}<span class="label label-danger"> Close</span>{% endif %}</td>
+                          <td>{{ request.status }}{% if request.status == 0 %}<span class="label label-primary">Configure</span>
+                              {% elseif request.status == 1 %}<span class="label label-info"> Open</span>
+                              {% elseif request.status == 2 %}<span class="label label-success"> Live</span> 
+                              {% elseif request.status == 3 %}<span class="label label-danger"> Not-Live</span>    
+                                  {% endif %}</td>
                         </tr>
                         {% endfor %}
                       </tbody>
@@ -46,7 +49,11 @@
     <script type="text/javascript">
 
 			$(document).ready(function() {
-				$('#table').dataTable();
-			} );
+                        
+                            $('#table').dataTable();
+                            document.getElementById("badge").innerHTML=$('#count').val();
+ 
+                        } );
+                        
     </script>
 {% endblock %}

@@ -43,6 +43,10 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
                    <legend><h3 class=\"page-header\">Splash Request List</h3></legend> 
 
                   <!-- <h2 class=\"sub-header\">Section title</h2> -->
+                 <input type=\"hidden\" id=\"count\" name='count' value=\"";
+        // line 10
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["request_list"]) ? $context["request_list"] : $this->getContext($context, "request_list"))), "html", null, true);
+        echo "\"/>
                   <form method=\"\" action=\"\">
                   <div class=\"table-responsive\">
                     <table id=\"table\" class=\"table table-striped\">
@@ -57,17 +61,15 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
                         </tr>
                       </thead>
                       <tbody>
-                          
-                      
-                        ";
-        // line 26
+                         ";
+        // line 25
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["request_list"]) ? $context["request_list"] : $this->getContext($context, "request_list")));
         foreach ($context['_seq'] as $context["_key"] => $context["request"]) {
-            // line 27
+            // line 26
             echo "                           <tr>
                                <td><a href=\"requestDetails/";
-            // line 28
+            // line 27
             echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "id", array()), "html", null, true);
             echo "\">";
             if (($this->getAttribute($context["request"], "brand", array()) != null)) {
@@ -76,31 +78,44 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
             }
             echo "</a></td>
                           <td>";
-            // line 29
+            // line 28
             if (($this->getAttribute($context["request"], "vendor", array()) != null)) {
                 echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute($context["request"], "vendor", array()), "name", array()), "html", null, true);
                 echo " ";
             }
             echo "</td>
                           <td>";
-            // line 30
+            // line 29
             echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "requesterName", array()), "html", null, true);
             echo "</td>
                           <td>";
-            // line 31
+            // line 30
             echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "isoCode", array()), "html", null, true);
             echo "</td>
                           <td>";
-            // line 32
+            // line 31
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute($context["request"], "createdOn", array())), "html", null, true);
             echo "</td>
                           <td>";
-            // line 33
-            if (($this->getAttribute($context["request"], "status", array()) == 1)) {
-                echo "<span class=\"label label-success\">Open </span>";
-            } else {
-                echo "<span class=\"label label-danger\"> Close</span>";
+            // line 32
+            echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "status", array()), "html", null, true);
+            if (($this->getAttribute($context["request"], "status", array()) == 0)) {
+                echo "<span class=\"label label-primary\">Configure</span>
+                              ";
+            } elseif (($this->getAttribute($context["request"], "status", array()) == 1)) {
+                // line 33
+                echo "<span class=\"label label-info\"> Open</span>
+                              ";
+            } elseif (($this->getAttribute($context["request"], "status", array()) == 2)) {
+                // line 34
+                echo "<span class=\"label label-success\"> Live</span> 
+                              ";
+            } elseif (($this->getAttribute($context["request"], "status", array()) == 3)) {
+                // line 35
+                echo "<span class=\"label label-danger\"> Not-Live</span>    
+                                  ";
             }
+            // line 36
             echo "</td>
                         </tr>
                         ";
@@ -108,7 +123,7 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['request'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 39
         echo "                      </tbody>
                     </table>
                   </div>
@@ -119,16 +134,20 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
 ";
     }
 
-    // line 44
+    // line 47
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 45
+        // line 48
         echo "
     <script type=\"text/javascript\">
 
 \t\t\t\$(document).ready(function() {
-\t\t\t\t\$('#table').dataTable();
-\t\t\t} );
+                        
+                            \$('#table').dataTable();
+                            document.getElementById(\"badge\").innerHTML=\$('#count').val();
+ 
+                        } );
+                        
     </script>
 ";
     }
@@ -145,6 +164,6 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
 
     public function getDebugInfo()
     {
-        return array (  126 => 45,  123 => 44,  112 => 36,  99 => 33,  95 => 32,  91 => 31,  87 => 30,  80 => 29,  71 => 28,  68 => 27,  64 => 26,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  141 => 48,  138 => 47,  127 => 39,  119 => 36,  115 => 35,  111 => 34,  107 => 33,  101 => 32,  97 => 31,  93 => 30,  89 => 29,  82 => 28,  73 => 27,  70 => 26,  66 => 25,  48 => 10,  40 => 4,  37 => 3,  11 => 1,);
     }
 }

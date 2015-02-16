@@ -1,6 +1,6 @@
 <?php
 
-/* ::base.html.twig */
+/* base.html.twig */
 class __TwigTemplate_f27848a9d7a31679dc320e2c2db42c01bcc3525020af11b4f03698b6eb659adc extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -210,7 +210,7 @@ class __TwigTemplate_f27848a9d7a31679dc320e2c2db42c01bcc3525020af11b4f03698b6eb6
         echo $this->env->getExtension('routing')->getPath("mobile_splash_requests");
         echo "\" class=\"list-group-item\">
 
-            <span class=\"glyphicon glyphicon-th-list\"></span> List <span class=\"badge\">50</span>
+            <span class=\"glyphicon glyphicon-th-list\"></span> List <span class=\"badge\" id=\"badge\">50</span>
 
         </a>
 
@@ -246,7 +246,7 @@ class __TwigTemplate_f27848a9d7a31679dc320e2c2db42c01bcc3525020af11b4f03698b6eb6
 
     public function getTemplateName()
     {
-        return "::base.html.twig";
+        return "base.html.twig";
     }
 
     public function isTraitable()

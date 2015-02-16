@@ -44,8 +44,8 @@ class __TwigTemplate_adaae3f28132274490811c66a9d16fa225d1e8e79f17ad5d4a941941255
     public function block_body($context, array $blocks = array())
     {
         // line 7
-        echo "<div class=\"col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main\">
-    <legend><h3 class=\"page-header\">Splash Request Details</h3></legend>
+        echo " <div class=\"col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main\">
+    <legend><h3 class=\"page-header\">Splash Request Details..</h3></legend>
   <form role=\"form\" id=\"splash_form\" method=\"post\" action=\"\">
     <div class=\"form-group\">
       <label for=\"brand\">Brand:</label>

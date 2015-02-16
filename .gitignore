@@ -1,1 +1,4 @@
 /marketing_app/nbproject/private/
+app/logs
+app/config/
+web/bundles/
