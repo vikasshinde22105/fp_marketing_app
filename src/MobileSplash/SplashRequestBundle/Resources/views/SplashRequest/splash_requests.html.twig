@@ -16,7 +16,7 @@
                           <th>Brand</th>
                           <th>Vendor</th>
                           <th>Requester</th>
-                          <th>ISO Code</th>
+                          <th>Country</th>
                           <th>Created On</th>
                           <th>Status</th>
                         </tr>
@@ -29,12 +29,12 @@
                                <td><a href="requestDetails/{{request.id}}">{% if (request.brand!=null) %}{{request.brand.name }} {% endif%}</a></td>
                           <td>{% if (request.vendor!=null) %}{{request.vendor.name }} {% endif%}</td>
                           <td>{{request.requesterName}}</td>
-                          <td>{{request.isoCode}}</td>
+                          <td>{{request.country.name}}</td>
                           <td>{{request.createdOn|date}}</td>
                           <td>{% if request.status == 0 %}<span class="label label-primary">Configure </span>
                                  {% elseif request.status == 1 %}<span class="label label-info">Submitted</span>
-                                 {% elseif request.status == 2 %}<span class="label label-success">Live</span>
-                                 {% elseif request.status == 3 %}<span class="label label-danger">Not-Live</span>
+                                 {% elseif request.status == 2 %}<span class="label label-danger">Not-Live</span>
+                                 {% elseif request.status == 3 %}<span class="label label-success">Live</span>
                               {% endif %}
                                   </td>
                         </tr>
