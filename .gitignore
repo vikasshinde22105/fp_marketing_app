@@ -1,5 +1,5 @@
 /marketing_app/nbproject/private/
 
-/app/cache/*
-/app/logs/*
+/app/cache/
+/app/logs/
 /web/bundles
