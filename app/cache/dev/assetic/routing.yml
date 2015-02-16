@@ -1,5 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-    resource: /home/vikasshinde/NetBeansProjects/fp_marketing_app1/app/config/routing_dev.yml
