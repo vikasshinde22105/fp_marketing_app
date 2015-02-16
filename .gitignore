@@ -3,3 +3,7 @@
 /app/cache/
 /app/logs/
 /web/bundles
+
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
