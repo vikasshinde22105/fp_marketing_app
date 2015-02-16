@@ -12,7 +12,7 @@ $().ready(function() {
 
  
  //$('#country').selectize();
-$('#splash_Brand').selectize();
+$('#splash_brand').selectize();
 //$('#vendor').selectize();
 
 
@@ -59,7 +59,7 @@ var select_vendors, $select_vendors;
 $select_country = $('#splash_country').selectize({
     onChange: function(value) { 
         if (!value.length) return;
-        select_vendors.disable();
+//        select_vendors.disable();
         select_vendors.clearOptions();
         select_vendors.load(function(callback) {
             xhr && xhr.abort();
@@ -68,7 +68,7 @@ $select_country = $('#splash_country').selectize({
                 datatype:"json",
                 success: function(results) {
                     var obj  = JSON.parse( results );
-                    select_vendors.enable();
+//                    select_vendors.enable();
                     callback(obj);           
                 },
                 error: function() {
@@ -88,7 +88,7 @@ $select_vendors = $('#splash_vendor').selectize({
 select_vendors  = $select_vendors[0].selectize;
 select_country = $select_country[0].selectize;
 
-select_vendors.disable();
+//select_vendors.disable();
 /*end selectize*/
  
  

@@ -3,6 +3,7 @@
 namespace MobileSplash\SplashRequestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * SplashDetails
@@ -16,6 +17,8 @@ class SplashDetails
      * @var string
      *
      * @ORM\Column(name="logo_url", type="string", length=45, nullable=true)
+     * @Assert\NotNull(message = "Url is required.")
+     * @Assert\Url(message = "Logo url is not valid.")
      */
     private $logoUrl;
 
@@ -23,6 +26,7 @@ class SplashDetails
      * @var string
      *
      * @ORM\Column(name="vendor_domain", type="string", length=45, nullable=true)
+     * @Assert\NotNull(message = "Vendor domain is required.")
      */
     private $vendorDomain;
 
@@ -30,6 +34,7 @@ class SplashDetails
      * @var string
      *
      * @ORM\Column(name="headline", type="string", length=45, nullable=true)
+     * @Assert\NotNull(message = "Headline is required.")
      */
     private $headline;
 
@@ -37,6 +42,7 @@ class SplashDetails
      * @var string
      *
      * @ORM\Column(name="subline", type="string", length=45, nullable=true)
+     * @Assert\NotNull(message = "Subline is required.")
      */
     private $subline;
 
@@ -168,6 +174,7 @@ class SplashDetails
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="vendor_id", referencedColumnName="id")
      * })
+     * @Assert\NotNull(message = "Vendor is required.")
      */
     private $vendor;
 
@@ -188,6 +195,7 @@ class SplashDetails
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="brand_id", referencedColumnName="id")
      * })
+     * @Assert\NotNull(message = "Brand is required.")
      */
     private $brand;
 
@@ -198,6 +206,7 @@ class SplashDetails
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      * })
+     * @Assert\NotNull(message = "Country is required.")
      */
     private $country;
 

@@ -59,7 +59,7 @@
 
              <aside class="sidebar">
                 {% block sidebar %}
-            <!--    <div class="col-sm-3 col-md-2 sidebar">
+                <div class="col-sm-3 col-md-2 sidebar">
                     <ul class="nav nav-sidebar" id='sidebar'>
                       <li class="active"><a href="#">Mobile Splash <span class="sr-only">(current)</span></a></li>
                       <li class='tabopen' ><a href="{{ path('mobile_splash_request_add') }}">Config</a></li>
@@ -68,35 +68,6 @@
                     </ul>
  
                 </div>
-             -->       
-
-    <div class="col-sm-3 col-md-2 sidebar">
-
-        <a href="" class="list-group-item active">
-
-            Mobile Splash 
-
-        </a>
-
-        <a href="{{ path('mobile_splash_request_add') }}" class="list-group-item">
-
-            <span class="glyphicon glyphicon-plus"></span> Config <span class="badge"></span>
-
-        </a>
-
-        <a href="{{ path('mobile_splash_requests') }}" class="list-group-item">
-
-            <span class="glyphicon glyphicon-th-list"></span> List <span class="badge" id="badge">50</span>
-
-        </a>
-
-       
-
-    </div>
- 
- 
-
-
                 {% endblock %}
             </aside>
             <section class="main-col">

@@ -6,58 +6,52 @@
 {% block body %}
     <div class="col-sm-9 col-sm-offset-3 col-md-6 col-md-offset-2 main">
         <legend><h3>Splash Request Form</h3></legend>
-      {% for flashMessage in app.session.flashbag.get('notice') %}
- 
-          <div class="alert alert-success"> <h4>{{ flashMessage }}</h4></div>
- 
-{% endfor %}
-<form  method="post" id='splash'>
+        {% for label, flashes in app.session.flashbag.all %}
+            {% for flash in flashes %}
+                <div class="alert alert-{{ label }}">
+                    {{ flash }}
+                </div>
+            {% endfor %}
+        {% endfor %}
 
- 
-             {{ form_row(RequestForm.Brand) }}
-              {{ form_row(RequestForm.country) }}
-             {{ form_row(RequestForm.vendor) }}
-             {{ form_row(RequestForm.logoUrl) }}
-             {{ form_row(RequestForm.vendorDomain) }}
-             {{ form_row(RequestForm.headline) }}
-             {{ form_row(RequestForm.subline) }}
-             {{ form_row(RequestForm.customizedBackground) }}
-             <div id='customizedfield'>
-             {{ form_row(RequestForm.isoPortrait) }}
-             {{ form_row(RequestForm.isoLandscape) }}
-             {{ form_row(RequestForm.androidPortrait) }}
-             {{ form_row(RequestForm.androidLandscape) }}
-             {{ form_row(RequestForm.wp8Portrait) }}
-             {{ form_row(RequestForm.wp8Landscape) }}
-
-             </div>  
-             <br/><br/>
-            <legend  style="text-align: center">{{ form_row(RequestForm.save) }}</legend>
-
-             
-
-        {{ form_row(RequestForm._token) }}
-        {{form_widget(RequestForm._token)}}
-
+        {{ form_start(RequestForm, {'attr': {'action':path('mobile_splash_request_add'), 'method':'POST', 'novalidate':'novalidate'} }) }}
+            {{ form_row(RequestForm.brand) }}
+            {{ form_row(RequestForm.country) }}
+            {{ form_row(RequestForm.vendor) }}
+            {{ form_row(RequestForm.logoUrl) }}
+            {{ form_row(RequestForm.vendorDomain) }}
+            {{ form_row(RequestForm.headline) }}
+            {{ form_row(RequestForm.subline) }}
+            {{ form_row(RequestForm.customizedBackground) }}
+            <div id='customizedfield'>
+                {{ form_row(RequestForm.isoPortrait) }}
+                {{ form_row(RequestForm.isoLandscape) }}
+                {{ form_row(RequestForm.androidPortrait) }}
+                {{ form_row(RequestForm.androidLandscape) }}
+                {{ form_row(RequestForm.wp8Portrait) }}
+                {{ form_row(RequestForm.wp8Landscape) }}
+            </div>
+            {{ form_row(RequestForm.save) }}
+            {{ form_row(RequestForm._token) }}
+            {{form_widget(RequestForm._token)}}
         {{form_end(RequestForm)}}
-
-
     </div>
-    {% endblock %}
+{% endblock %}
 
-     {% block javascripts   %}
-
-            <script src="{{ asset('js/splashdetails.js') }}"></script>
-       <script type='text/javascript'>
-            $().ready(function() { 
-                $('#customizedfield').hide();
-                $('#splash_customizedBackground').change(function() {
-                    if($(this).val() == 0){
-                    $('#customizedfield').hide(); 
-                     }
-                    else  $('#customizedfield').show();
-                })  
-              });
-            
-       </script>
+{% block javascripts   %}
+    <script src="{{ asset('js/splashdetails.js') }}"></script>
+    <script type='text/javascript'>
+        $().ready(function() { 
+            $('#customizedfield').hide();
+            $('#splash_customizedBackground').change(function() {
+                if($(this).val() == 0){
+                $('#customizedfield').hide(); 
+                 }
+                else  $('#customizedfield').show();
+            })  
+            if($('#splash_customizedBackground').val() == 1){
+                $('#customizedfield').show(); 
+            }
+        });
+    </script>
  {% endblock %}
