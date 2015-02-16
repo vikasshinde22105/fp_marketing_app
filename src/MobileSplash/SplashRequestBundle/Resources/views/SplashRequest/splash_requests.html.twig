@@ -4,7 +4,7 @@
 
   
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                   <legend><h3 class="page-header">Splash Request List</h3></legend> 
+                   <legend><h3 class="page-header">Splash Request List asdf</h3></legend> 
 
                   <!-- <h2 class="sub-header">Section title</h2> -->
                  <input type="hidden" id="count" name='count' value="{{ request_list|length}}"/>
@@ -29,8 +29,8 @@
                           <td>{{request.requesterName}}</td>
                           <td>{{request.isoCode}}</td>
                           <td>{{request.createdOn|date}}</td>
-                          <td>{{ request.status }}{% if request.status == 0 %}<span class="label label-primary">Configure</span>
-                              {% elseif request.status == 1 %}<span class="label label-info"> Open</span>
+                          <td>{% if request.status == 0 %}<span class="label label-primary">Configure</span>
+                              {% elseif request.status == 1 %}<span class="label label-danger"> Open</span>
                               {% elseif request.status == 2 %}<span class="label label-success"> Live</span> 
                               {% elseif request.status == 3 %}<span class="label label-danger"> Not-Live</span>    
                                   {% endif %}</td>

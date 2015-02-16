@@ -98,13 +98,12 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
             echo "</td>
                           <td>";
             // line 32
-            echo twig_escape_filter($this->env, $this->getAttribute($context["request"], "status", array()), "html", null, true);
             if (($this->getAttribute($context["request"], "status", array()) == 0)) {
                 echo "<span class=\"label label-primary\">Configure</span>
                               ";
             } elseif (($this->getAttribute($context["request"], "status", array()) == 1)) {
                 // line 33
-                echo "<span class=\"label label-info\"> Open</span>
+                echo "<span class=\"label label-danger\"> Open</span>
                               ";
             } elseif (($this->getAttribute($context["request"], "status", array()) == 2)) {
                 // line 34
@@ -164,6 +163,6 @@ class __TwigTemplate_0bfd5bc3e9b918b7c1de6305044f5922b8f5b032fc00514147e625ff740
 
     public function getDebugInfo()
     {
-        return array (  141 => 48,  138 => 47,  127 => 39,  119 => 36,  115 => 35,  111 => 34,  107 => 33,  101 => 32,  97 => 31,  93 => 30,  89 => 29,  82 => 28,  73 => 27,  70 => 26,  66 => 25,  48 => 10,  40 => 4,  37 => 3,  11 => 1,);
+        return array (  140 => 48,  137 => 47,  126 => 39,  118 => 36,  114 => 35,  110 => 34,  106 => 33,  101 => 32,  97 => 31,  93 => 30,  89 => 29,  82 => 28,  73 => 27,  70 => 26,  66 => 25,  48 => 10,  40 => 4,  37 => 3,  11 => 1,);
     }
 }
