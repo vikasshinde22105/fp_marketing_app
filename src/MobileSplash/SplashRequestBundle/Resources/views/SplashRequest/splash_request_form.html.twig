@@ -15,37 +15,23 @@
         {% endfor %}
 
         {{ form_start(RequestForm, {'attr': {'action':path('mobile_splash_request_add'), 'method':'POST', 'novalidate':'novalidate'} }) }}
-            {{ form_label(RequestForm.brand) }}
-            {{ form_widget(RequestForm.brand) }}
-            {{ form_label(RequestForm.country) }}
-            {{ form_widget(RequestForm.country) }}
-            {{ form_label(RequestForm.vendor) }}
-            {{ form_widget(RequestForm.vendor) }}
-            {{ form_label(RequestForm.logoUrl) }}
-            {{ form_widget(RequestForm.logoUrl) }}
-            {{ form_label(RequestForm.vendorDomain) }}
-            {{ form_widget(RequestForm.vendorDomain) }}
-            {{ form_label(RequestForm.headline) }}
-            {{ form_widget(RequestForm.headline) }}
-            {{ form_label(RequestForm.subline) }}
-            {{ form_widget(RequestForm.subline) }}
-            {{ form_label(RequestForm.customizedBackground) }}
-            {{ form_widget(RequestForm.customizedBackground) }}
+            {{ form_row(RequestForm.brand) }}
+            {{ form_row(RequestForm.country) }}
+            {{ form_row(RequestForm.vendor) }}
+            {{ form_row(RequestForm.logoUrl) }}
+            {{ form_row(RequestForm.vendorDomain) }}
+            {{ form_row(RequestForm.headline) }}
+            {{ form_row(RequestForm.subline) }}
+            {{ form_row(RequestForm.customizedBackground) }}
             <div id='customizedfield'>
-                {{ form_label(RequestForm.isoPortrait) }}
-                {{ form_widget(RequestForm.isoPortrait) }}
-                {{ form_label(RequestForm.isoLandscape) }}
-                {{ form_widget(RequestForm.isoLandscape) }}
-                {{ form_label(RequestForm.androidPortrait) }}
-                {{ form_widget(RequestForm.androidPortrait) }}
-                {{ form_label(RequestForm.androidLandscape) }}
-                {{ form_widget(RequestForm.androidLandscape) }}
-                {{ form_label(RequestForm.wp8Portrait) }}
-                {{ form_widget(RequestForm.wp8Portrait) }}
-                {{ form_label(RequestForm.wp8Landscape) }}
-                {{ form_widget(RequestForm.wp8Landscape) }}
+                {{ form_row(RequestForm.isoPortrait) }}
+                {{ form_row(RequestForm.isoLandscape) }}
+                {{ form_row(RequestForm.androidPortrait) }}
+                {{ form_row(RequestForm.androidLandscape) }}
+                {{ form_row(RequestForm.wp8Portrait) }}
+                {{ form_row(RequestForm.wp8Landscape) }}
             </div>
-            <br>{{ form_row(RequestForm.save) }}
+            {{ form_row(RequestForm.save) }}
             {{ form_row(RequestForm._token) }}
             {{form_widget(RequestForm._token)}}
         {{form_end(RequestForm)}}

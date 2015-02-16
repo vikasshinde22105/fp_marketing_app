@@ -1,5 +1,0 @@
-_assetic:
-    resource: .
-    type: assetic
-_app:
-    resource: /home/pravinj/workspace/tastykhana.in/httpdocs/fp_marketing_app/app/config/routing_dev.yml

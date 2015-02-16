@@ -31,9 +31,6 @@ class SplashRequestController extends Controller
             return $this->redirectToRoute('mobile_splash_request_add');
            }
 
-        if($RequestForm->getErrorsAsString()) {
-             $this->get('session')->getFlashBag()->add('danger',$RequestForm->getErrorsAsString());
-        }
         return $this->render('MobileSplashSplashRequestBundle:SplashRequest:splash_request_form.html.twig', [
         'entity' => $splashDetails,
         'RequestForm' => $RequestForm->createView(),
