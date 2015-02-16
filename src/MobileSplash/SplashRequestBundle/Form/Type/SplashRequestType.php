@@ -62,22 +62,11 @@ class SplashRequestType extends AbstractType
     private function getBrands() {
            
             $emm = $this->em->getRepository('MobileSplashSplashRequestBundle:Brands');        
-   // $results = $er->createQueryBuilder('e')
-     //          ->groupBy('e.SplashDetails')
-       //        ->orderBy('e.SplashDetails', 'ASC');
             $query = $emm ->createQueryBuilder('t')
             ->select('t.id','t.name');
-        //->where('t.user = :username','t.token = :token')
-        //->setParameter('username', $Username)
-        //->setParameter('token', $Token)
-        //->orderBy('t.expirationdate', 'ASC')
-        //->setMaxResults(1);
-             $query = $query->getQuery();
+            $query = $query->getQuery();
              $results = $query->getResult();
         
-    $splashDetails = array();
- 
-
-    return $results;
+            return $results;
 }
 }
