@@ -39,7 +39,7 @@ class SplashRequestController extends Controller
     
     public function requestListAction() 
     {
-                $em = $this->getDoctrine()->getEntityManager();
+                $em = $this->getDoctrine()->getManager();
                 $request_list = $em->getRepository('MobileSplashSplashRequestBundle:SplashDetails')->findAll();
                 return $this->render('MobileSplashSplashRequestBundle:SplashRequest:splash_requests.html.twig',array('request_list'=>$request_list));
 
@@ -73,7 +73,7 @@ class SplashRequestController extends Controller
     }
     public function addRequestForm(SplashDetails $splashDetails) {
         
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $form=$this->createForm(new SplashRequestType($em),$splashDetails);
         return $form;
     }
