@@ -4,12 +4,14 @@ namespace MobileSplash\SplashRequestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use MobileSplash\SplashRequestBundle\Validator\CheckBgCustomizedFields;
 
 /**
  * SplashDetails
  *
  * @ORM\Table(name="splash_details", indexes={@ORM\Index(name="fk_tbl_splash_details_1_idx", columns={"country_id"}), @ORM\Index(name="fk_tbl_splash_details_2_idx", columns={"brand_id"}), @ORM\Index(name="fk_tbl_splash_details_3_idx", columns={"city_id"}), @ORM\Index(name="fk_tbl_splash_details_4_idx", columns={"vendor_id"})})
  * @ORM\Entity
+ * @CheckBgCustomizedFields()
  */
 class SplashDetails
 {
@@ -18,7 +20,7 @@ class SplashDetails
      *
      * @ORM\Column(name="logo_url", type="string", length=45, nullable=true)
      * @Assert\NotNull(message = "Url is required.")
-     * @Assert\Url(message = "Logo url is not valid.")
+     * @Assert\Url(message = "Logo url is not a valid url.")
      */
     private $logoUrl;
 
@@ -27,6 +29,7 @@ class SplashDetails
      *
      * @ORM\Column(name="vendor_domain", type="string", length=45, nullable=true)
      * @Assert\NotNull(message = "Vendor domain is required.")
+     * @Assert\Url(message = "Vendor domain is not a valid url.")
      */
     private $vendorDomain;
 
